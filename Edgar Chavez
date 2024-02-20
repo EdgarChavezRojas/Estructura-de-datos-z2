@@ -1,0 +1,108 @@
+/*
+
+
+
+
+*/
+
+#include <cmath>
+#include <iostream>
+using namespace std;
+
+
+int Factorial(double n);
+void Potencia(int p, int k, int &result);
+float serie(int x, int s, int &result);
+
+int main()
+{ string resp;
+    int opc, n, u, m, m2, x, S, result, z;
+    do{
+    n = 0; u = 0; m = 0; m2 = 0, S = 0;
+    cout<<"0. salir"<<endl;
+    cout<<"1. Factorial"<<endl;
+    cout<<"2. Potencias"<<endl;
+    cout<<"3. Series"<<endl;
+    cout<<"Elija la opcion que desee: "<<endl; cin>>opc;
+    switch(opc){
+    case 0:
+    resp = "No"; 
+    
+    break;
+    case 1:
+    cout<<"Ingrese el factorial que desee: "; cin>>n;
+    u = Factorial(n);
+    cout<<"El resultado es: "<<u<<endl;
+    cout<<"Desea hacer algo mas?(Si/No): "; cin>>resp;
+    break;
+    case 3:
+    cout<<"Que numero quiere elevar(potencia)?: "; cin>>m;
+    cout<<"Indique el numero del exponente: "; cin>>m2;
+    z= serie(m, m2, result);
+    cout<<"El resultado es: "<<z<<endl;
+    cout<<"Desea hacer algo mas?(Si/No): "; cin>>resp;
+    break;
+    case 2:
+    cout<<"Elija el numero de la serie: "; cin>>S;
+    cout<<"Elija el numero de su exponente: "; cin>>m2;
+    Potencia(S,m2,result);
+    
+    cout<<"El resultado es: "<<result<<endl;
+    cout<<"Desea hacer algo mas?(Si/No): "; cin>>resp;
+    break;
+    default: 
+    cout<<"Elija una opcion valida"<<endl;
+    cout<<"Desea hacer algo mas?(Si/No): "; cin>>resp;
+    break;
+        
+    }
+        
+        
+    }while(resp == "Si");
+    
+    return 0;
+}
+
+
+int Factorial(double n){
+   int s; s = 1;
+for(int i=1; i<=n; i++){
+    s = s*i;
+    
+
+    
+}   
+return s;
+}
+void Potencia(int p, int k, int &r){
+ /*int s;
+   
+    s = pow(p,k);
+ return s;*/
+ r = 1;    
+ if(k >= 0){
+    for(int i=0; i< k; i++){
+    r= r*p;    
+    } 
+ }else{
+    for(int i = 0; i> k; i--){
+    r= r/p;    
+    
+    } 
+ }     
+     
+   
+}
+float serie(int x, int n, int &r){
+    int re; 
+    re = 3;
+    
+for(int i=2; i<=n; i= i + 2){
+ Potencia(x,i, r);
+ 
+re = re + ((r)/(Factorial(i)));
+
+
+}
+return re;
+}
